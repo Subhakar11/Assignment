@@ -1,0 +1,14 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Force text files to use LF (Unix-style) line endings
+*.json text eol=lf
+
+# Force text files to use CRLF (Windows-style) line endings
+#*.json text eol=crlf
+
+# Force text files to use LF (Unix-style) line endings for all files
+#* text eol=lf
+
+# Force text files to use CRLF (Windows-style) line endings for all files
+#* text eol=crlf
