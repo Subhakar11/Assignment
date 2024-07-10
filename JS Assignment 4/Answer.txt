@@ -1,0 +1,130 @@
+
+// 1 Dark Theme
+
+
+function swapTheme() {
+  const appDiv = document.getElementById("app");
+  const swapButton = document.getElementById("swap");
+
+  // Toggle class based on current class
+  if (appDiv.classList.contains("day")) {
+    appDiv.classList.remove("day");
+    appDiv.classList.add("night");
+    swapButton.classList.remove("button_day");
+    swapButton.classList.add("button_night");
+  } else {
+    appDiv.classList.remove("night");
+    appDiv.classList.add("day");
+    swapButton.classList.remove("button_night");
+    swapButton.classList.add("button_day");
+  }
+}
+
+// 2 Div Creation
+
+
+function createDiv(width, height, text) {
+  // 1. Create a new div element
+  const newDiv = document.createElement("div");
+
+  // 2. Set the width and height styles with "px" unit
+  newDiv.style.width = width + "px";
+  newDiv.style.height = height + "px";
+
+  // 3. Set the text content
+  newDiv.textContent = text;
+
+  // 4. Get the container element
+  const container = document.getElementById("container");
+
+  // 5. Append the new div to the container
+  container.appendChild(newDiv);
+}
+// Example usage:
+createDiv(100, 50, "This is a new div");
+createDiv(200, 100, "Another new div"); 
+// Do not change this code
+Window.createDiv = createDiv;
+
+// 3 Hide Show Para
+
+
+function toggleVisibility() {
+  const paragraph = document.getElementById("useless-paragraph");
+
+  if (paragraph.style.display === "none") {
+    paragraph.style.display = "block";
+  } else {
+    paragraph.style.display = "none";
+  }
+}
+
+
+// 4  Dynamic - CSS
+
+
+const textContainer = document.getElementById("text-container");
+const colorbox = document.getElementById("colorbox");
+const colorChangeButton = document.getElementById("colorchange");
+const fontSizeInput = document.getElementById("fontsize");
+const italicButton = document.getElementById("italic");
+const underlineButton = document.getElementById("underline");
+const boldButton = document.getElementById("bold");
+const fontList = document.getElementById("list");
+const getStyleButton = document.getElementById("getstyle");
+const cssPropsParagraph = document.getElementById("css-props");
+
+// Update text color on button click
+colorChangeButton.addEventListener("click", () => {
+  const color = colorbox.value;
+  textContainer.style.color = color;
+});
+
+// Update font size on slider change
+fontSizeInput.addEventListener("input", () => {
+  const fontSize = fontSizeInput.value + "px";
+  textContainer.style.fontSize = fontSize;
+});
+
+// Toggle text styles on button clicks
+italicButton.addEventListener("click", () => {
+  textContainer.style.fontStyle = textContainer.style.fontStyle === "italic" ? "normal" : "italic";
+});
+
+underlineButton.addEventListener("click", () => {
+  textContainer.style.textDecoration = textContainer.style.textDecoration === "underline" ? "none" : "underline";
+});
+
+boldButton.addEventListener("click", () => {
+  textContainer.style.fontWeight = textContainer.style.fontWeight === "bold" ? "normal" : "bold";
+});
+
+// Update font family on selection change
+fontList.addEventListener("change", () => {
+  const fontFamily = fontList.value;
+  textContainer.style.fontFamily = fontFamily;
+});
+
+//   Get and display CSS styles on button click
+getStyleButton.addEventListener("click", () => {
+  const color = textContainer.style.color;
+  const fontSize = textContainer.style.fontSize;
+  const fontStyle = textContainer.style.fontStyle;
+  const fontWeight = textContainer.style.fontWeight;
+  const fontFamily = textContainer.style.fontFamily;
+  const textDecoration = textContainer.style.textDecoration;
+
+  let cssString = "";
+  if (color) cssString += `color: ${color}; `;
+  if (fontSize) cssString += `font-size: ${fontSize}; `;
+  if (fontStyle) cssString += `font-style: ${fontStyle}; `;
+  if (fontWeight) cssString += `font-weight: ${fontWeight}; `;
+  if (fontFamily) cssString += `font-family: ${fontFamily}; `;
+  if (textDecoration) cssString += `text-decoration: ${textDecoration}; `;
+
+  cssPropsParagraph.textContent = cssString;
+});
+
+// Initial font size set to 55px
+textContainer.style.fontSize = "55px";
+

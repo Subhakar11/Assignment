@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Assignments</title>
+</head>
+<body>
+  <h1>JavaScript Assignments</h1>
+  <script>
+
+    //Q1) Remove names starting with vowels:
+    const states = ["Maharashtra", "Andhra Pradesh", "Uttar Pradesh", "Kerala"];
+
+const noVowelStates = states.filter(state => !["aeiouAEIOU"].includes(state[0]));
+
+console.log(noVowelStates); // Output: ["Maharashtra", "Uttar Pradesh"]
+
+
+  //Q2) Reverse sentence order:
+  let str = "I love my India";
+
+const reversedWords = str.split(" ").reverse().join(" ");
+
+console.log(reversedWords); // Output: "India my love I"
+
+//Q3) Change string using splice:
+
+let string = "INDIA";
+
+string.split("").splice(3, 0, "ONE").join(""); // Modifies the original string
+
+console.log(string); // Output: "INDONESIA" (original string is mutated)
+
+//Q4) Count consonants and vowels:
+
+function countVowelsConsonants(str) {
+    const vowels = "aeiouAEIOU";
+    let vowelCount = 0;
+    let consonantCount = 0;
+  
+    for (let char of str) {
+      if (char.match(/[a-zA-Z]/)) { // Check for alphabetical characters only
+        if (vowels.includes(char)) {
+          vowelCount++;
+        } else {
+          consonantCount++;
+        }
+      }
+    }
+  
+    return { vowels: vowelCount, consonants: consonantCount };
+  }
+  
+  const sentence = "This is a test string with at least 20 characters.";
+  const counts = countVowelsConsonants(sentence);
+  
+  console.log(counts); // Output: { vowels: 8, consonants: 12 }
+
+  //Q5) Replace word in a sentence:
+  function correctFn(string, wrong, correct) {
+    return string.replace(wrong, correct);
+  }
+  
+  const sentences = "This sentance has a speling error.";
+  const correctedSentence = correctFn(sentences, "speling", "spelling");
+  
+  console.log(correctedSentence); // Output: "This sentance has a spelling error."
+  
+  //Q6) Filter numbers greater than 5:
+  const inputArr = [1, 2, 3, 9, 10, 7, 5, 4, 3];
+
+const greaterThanFive = inputArr.filter(num => num > 5);
+
+console.log(greaterThanFive); // Output: [9, 10, 7]
+
+//Q7) Calculate average score for each student:
+
+const students = [
+  { name: "Ram", scores: [80, 70, 60] },
+  { name: "Mohan", scores: [80, 70, 90] },
+  { name: "Sai", scores: [60, 70, 80] },
+  { name: "Hemang", scores: [90, 90, 80, 80] },
+];
+
+const withAverage = students.map(student => ({
+  ...student, // Spread operator to copy existing properties
+  average: student.scores.reduce((acc, score) => acc + score, 0) / student.scores.length,
+}));
+
+console.log(withAverage);
+// Output: [
+//   { name: "Ram", scores: [80, 70, 60], average: 70 },
+//   { name: "Mohan", scores: [80, 70, 90], average: 80 },
+//   { name: "Sai", scores: [60, 70, 80], average: 70 },
+//   { name: "Hemang", scores: [90, 90, 80, 80], average: 85 },
+// ]
+
+//Q8) Repeated sum of digits:
+
+
+function sumOfDigits(num) {
+    if (num < 0) return NaN; // Handle negative numbers
+    if (num < 10) return num; // Base case: single digit
+    return sumOfDigits(num % 10 + Math.floor(num / 10)); // Recursive call
+  }
+  
+  const number = 456;
+  const sum = sumOfDigits(number);
+  
+  console.log(sum); // Output
+  
+      </script>
+</body>
+</html>

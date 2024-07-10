@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Examples</title>
+</head>
+<body>
+    <h1>JavaScript Examples</h1>
+    <script>
+        // Example 1: Display even numbers (uncomment to run)
+         for (let i = 2; i <= 100; i += 2) {
+          console.log(i);
+         } 
+
+        // Example 2: Calculator function (uncomment to call)
+        function calculate(num1, num2, operation) {
+            switch (operation) {
+              case "+":
+                return num1 + num2;
+              case "-":
+                return num1 - num2;
+              case "*":
+                return num1 * num2;
+              case "/":
+                if (num2 === 0) {
+                  return "Error: Cannot divide by zero";
+                }
+                return num1 / num2;
+              default:
+                return "Invalid operation";
+            }
+          }
+       console.log(calculate(3,4,'+'));
+       console.log(calculate(3,4,'-'));
+       console.log(calculate(3,4,'*'));
+       console.log(calculate(3,4,'/'));
+
+        // Example 3: findTax function (uncomment to call)
+        function findTax(salary) {
+            switch (true) {
+              case salary <= 500000:
+                return 0;
+              case salary <= 1000000:
+                return salary * 0.1;
+              case salary <= 1500000:
+                return salary * 0.2;
+              default:
+                return salary * 0.3;
+            }
+          }
+          
+
+
+         let taxAmount = findTax(800000);
+        console.log(taxAmount);
+
+        // Example 4: sumOfProducts function (uncomment to call)
+        function sumOfProducts(num1, num2) {
+            let sum = 0;
+            let digit1, digit2;
+            while (num1 > 0 || num2 > 0) {
+              digit1 = num1 % 10;
+              digit2 = num2 % 10;
+              sum += digit1 * digit2;
+              num1 = Math.floor(num1 / 10);
+              num2 = Math.floor(num2 / 10);
+            }
+            return sum;
+          }
+          
+         let productSum = sumOfProducts(6, 34);
+         console.log(productSum);
+    </script>
+</body>
+</html>
